@@ -21,11 +21,9 @@ if __name__ == '__main__':
     w.pack()
 
     def thin_line(x1, y1, x2, y2):
-        #print(x1, y1, x2, y2)
         w.create_line(x1, y1, x2, y2, fill="black")
 
     def wide_line(x1, y1, x2, y2):
-        #print(x1, y1, x2, y2)
         w.create_line(x1, y1, x2, y2, fill="black", width= 3)
 
     #Draw thin lines
@@ -73,20 +71,18 @@ if __name__ == '__main__':
 
     
     grid_output = []
+
     def getInputs():
-    
         global grid_output
-        #check if one digit number, != 0
         wrongChecker = 0
 
         if all(elements.get() == "" for elements in entries):
             wrongChecker += 1
-            #print("wa")
+
         else:
 
             for element in entries:
                 if isinstance(element.get(), str) and not element.get().isdigit() and element.get()!= "" :
-                    #print("alpha")
                     wrongChecker += 1
 
 
@@ -103,7 +99,6 @@ if __name__ == '__main__':
                 row_new = map(lambda x: 0 if x == "" else (int(x) if 0<int(x)<10 else showMsg()), row)
                 grid_output.append(list(row_new))
 
-        print(grid_output)
 
     '''
     #"The hardest one there is" (according to Google Search)
