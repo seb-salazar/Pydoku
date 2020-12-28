@@ -76,10 +76,8 @@ if __name__ == '__main__':
             #global master
             getInputs()
             master.destroy()
-
             solver()
 
-            output_window()
 
         solveButton = tk.Button(master, text = "Solve", command = buttonAction)
         solveButton.configure(width = 10, activebackground = "#33B5E5")
@@ -181,18 +179,17 @@ if __name__ == '__main__':
                             
                     return
         print(np.matrix(grid_output))
+
+        # To wait for solver to respond
         output_window()
         #input("Want more")
         #raw_input("Want more")
         
 
     #window to display the solution
-
     
     def output_window():
-        global master
         global solution
-        global entries
         global grid_to_colour
 
         flatten = itertools.chain.from_iterable
@@ -250,15 +247,6 @@ if __name__ == '__main__':
         Label_seb = tk.Label(master, text="by Seb Salazar", font=('Helvetica', 14))
         w.create_window(150, 427, window=Label_seb)
 
-        def buttonAction():
-            global entries
-            #global master
-
-            master.destroy()
-            input_window()
-            entries = []
-         #   getInputs()
-          #  solver()
 
         for i in range(81):
             labels[i]['text'] = str(solution[i])
@@ -266,14 +254,6 @@ if __name__ == '__main__':
                 labels[i]['text'] = str(solution[i])
                 labels[i].config(fg="red")
             
-                
-
-
-
-        solveAnotherButton = tk.Button(master, text = "Solve Another", command = buttonAction)
-        solveAnotherButton.configure(width = 10, activebackground = "#33B5E5")
-        solveAnotherButton_window = w.create_window(300, 427, window=solveAnotherButton)
-
 
         master.mainloop()
 
